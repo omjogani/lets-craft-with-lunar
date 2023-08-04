@@ -10,4 +10,4 @@ CONTROL LUNAR AT MOON FROM THE EARTH!
 - Testing:  JUnit 5
 - Development: Test-Driven Development
 
-## Thank Incubyte for this opportunity!
+## Thanks Incubyte for this opportunity!
