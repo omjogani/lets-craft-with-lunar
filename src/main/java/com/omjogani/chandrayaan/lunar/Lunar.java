@@ -1,11 +1,16 @@
 package com.omjogani.chandrayaan.lunar;
 
+import com.omjogani.chandrayaan.Directions;
+
+import java.util.ArrayList;
+
 public abstract class Lunar {
-    public abstract void forward(int unit);
-    public abstract void backward( int unit);
-    public abstract void rotateRight();
-    public abstract void rotateLeft();
-    public abstract void rotateUp();
-    public abstract void rotateDown();
-    public abstract void displayPosition();
+    public abstract boolean checkLimitExceed(Directions direction);
+    public abstract Object forward(int unit);
+    public abstract Object backward(int unit);
+    public abstract Directions rotateRight();
+    public abstract Directions rotateLeft();
+    public abstract Directions rotateUp();
+    public abstract Directions rotateDown();
+    public abstract ArrayList<String> displayPosition();
 }

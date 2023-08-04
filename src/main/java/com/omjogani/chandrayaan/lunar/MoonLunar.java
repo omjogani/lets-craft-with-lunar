@@ -16,25 +16,25 @@ public class MoonLunar extends Lunar{
         this.direction = direction;
         this.boundaries = boundaries;
         System.out.println("Initially");
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
     }
 
-    public boolean checkLimitExceed() {
+    @Override
+    public boolean checkLimitExceed(Directions direction) {
         if(direction == Directions.NORTH || direction == Directions.SOUTH) {
-            return yAxis <= boundaries.get(0) && yAxis >= boundaries.get(1);
+            return yAxis < boundaries.get(0) && yAxis > boundaries.get(1);
         } else if(direction == Directions.EAST || direction == Directions.WEST) {
-            return xAxis <= boundaries.get(2) && xAxis >= boundaries.get(3);
+            return xAxis < boundaries.get(2) && xAxis > boundaries.get(3);
         } else if(direction == Directions.UP || direction == Directions.DOWN) {
-            return zAxis <= boundaries.get(4) && zAxis >= boundaries.get(5);
+            return zAxis < boundaries.get(4) && zAxis > boundaries.get(5);
         } else {
             return false;
         }
     }
 
     @Override
-    public void forward(int unit) {
-        if(!checkLimitExceed()){
-
+    public Object forward(int unit) {
+        if(!checkLimitExceed(direction)){
             throw new IllegalStateException("Lunar Forward Exceeded at the boundaries! " + direction);
         }
         if(direction == Directions.UP || direction == Directions.DOWN) {
@@ -44,12 +44,14 @@ public class MoonLunar extends Lunar{
         } else if(direction == Directions.EAST || direction == Directions.WEST) {
             xAxis = xAxis + unit;
         }
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
+
+        return null;
     }
 
     @Override
-    public void backward(int unit) {
-        if(!checkLimitExceed()){
+    public Object backward(int unit) {
+        if(!checkLimitExceed(direction)){
             throw new IllegalStateException("Lunar Backward Exceeded reached at the boundaries! " + direction);
         }
         if(direction == Directions.UP || direction == Directions.DOWN) {
@@ -59,12 +61,13 @@ public class MoonLunar extends Lunar{
         } else if(direction == Directions.EAST || direction == Directions.WEST) {
             xAxis = xAxis - unit;
         }
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
+        return null;
     }
 
 
     @Override
-    public void rotateRight() {
+    public Directions rotateRight() {
         if(direction == Directions.NORTH) {
             direction = Directions.EAST;
         } else if (direction == Directions.EAST) {
@@ -78,11 +81,12 @@ public class MoonLunar extends Lunar{
         } else if(direction == Directions.DOWN) {
             direction = Directions.WEST;
         }
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
+        return direction;
     }
 
     @Override
-    public void rotateLeft() {
+    public Directions rotateLeft() {
         if(direction == Directions.NORTH) {
             direction = Directions.WEST;
         } else if (direction == Directions.WEST) {
@@ -96,23 +100,32 @@ public class MoonLunar extends Lunar{
         } else if(direction == Directions.DOWN) {
             direction = Directions.EAST;
         }
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
+        return direction;
     }
 
     @Override
-    public void rotateUp() {
+    public Directions rotateUp() {
         direction = Directions.UP;
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
+        return direction;
     }
 
     @Override
-    public void rotateDown() {
+    public Directions rotateDown() {
         direction = Directions.DOWN;
-        displayPosition();
+        ArrayList<String> temp = displayPosition();
+        return direction;
     }
 
     @Override
-    public void displayPosition() {
+    public ArrayList<String> displayPosition() {
         System.out.println(xAxis + " " + yAxis + " " + zAxis + ": " + direction);
+        ArrayList<String> valueList = new ArrayList<>();
+        valueList.add(String.valueOf(xAxis));
+        valueList.add(String.valueOf(yAxis));
+        valueList.add(String.valueOf(zAxis));
+        valueList.add(String.valueOf(direction));
+        return valueList;
     }
 }

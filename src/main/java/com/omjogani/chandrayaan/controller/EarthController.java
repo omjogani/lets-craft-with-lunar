@@ -18,25 +18,26 @@ public class EarthController{
     public void handleLunar() {
         ArrayList<Integer> boundaries = new ArrayList<>();
         boundaries.add(3); // NORTH (0)
-        boundaries.add(-3); // SOUTH (1)
+        boundaries.add(-3); // SOUTH(1)
         boundaries.add(3); // EAST  (2)
-        boundaries.add(-3); // WEST  (3)
+        boundaries.add(-3); // WEST (3)
         boundaries.add(3); // UP    (4)
-        boundaries.add(-3); // DOWN  (5)
+        boundaries.add(-3); // DOWN (5)
         Lunar moon = new MoonLunar(0,0,0, Directions.NORTH, boundaries);
+        Directions localDirections;
         for(Commands command : listOfCommands){
             if(command == Commands.FORWARD) {
                 moon.forward(1);
             } else if (command == Commands.BACKWARD) {
                 moon.backward(1);
             } else if(command == Commands.UP) {
-                moon.rotateUp();
+                localDirections = moon.rotateUp();
             } else if(command == Commands.DOWN) {
-                moon.rotateDown();
+                localDirections = moon.rotateDown();
             } else if(command == Commands.LEFT) {
-                moon.rotateLeft();
+                localDirections = moon.rotateLeft();
             } else if(command == Commands.RIGHT) {
-                moon.rotateRight();
+                localDirections = moon.rotateRight();
             }
         }
     }

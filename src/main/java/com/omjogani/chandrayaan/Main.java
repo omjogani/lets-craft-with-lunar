@@ -12,6 +12,7 @@ public class Main {
         listOfCommands.add(Commands.UP);
         listOfCommands.add(Commands.BACKWARD);
         listOfCommands.add(Commands.LEFT);
+
         EarthController earthController = new EarthController(listOfCommands);
         earthController.handleLunar();
     }
