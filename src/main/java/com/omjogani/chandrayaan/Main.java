@@ -13,6 +13,18 @@ public class Main {
         listOfCommands.add(Commands.BACKWARD);
         listOfCommands.add(Commands.LEFT);
 
+//        listOfCommands.add(Commands.FORWARD);
+//        listOfCommands.add(Commands.FORWARD);
+//        listOfCommands.add(Commands.LEFT);
+//        listOfCommands.add(Commands.BACKWARD);
+//        listOfCommands.add(Commands.UP);
+
+//        listOfCommands.add(Commands.BACKWARD);
+//        listOfCommands.add(Commands.LEFT);
+//        listOfCommands.add(Commands.FORWARD);
+//        listOfCommands.add(Commands.RIGHT);
+//        listOfCommands.add(Commands.BACKWARD);
+
         EarthController earthController = new EarthController(listOfCommands);
         earthController.handleLunar();
     }

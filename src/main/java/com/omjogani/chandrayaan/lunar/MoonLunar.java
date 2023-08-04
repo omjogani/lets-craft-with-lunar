@@ -37,12 +37,18 @@ public class MoonLunar extends Lunar{
         if(!checkLimitExceed(direction)){
             throw new IllegalStateException("Lunar Forward Exceeded at the boundaries! " + direction);
         }
-        if(direction == Directions.UP || direction == Directions.DOWN) {
+        if(direction == Directions.UP) {
             zAxis = zAxis + unit;
-        } else if(direction == Directions.NORTH || direction == Directions.SOUTH) {
+        } else if(direction == Directions.DOWN){
+            zAxis = zAxis - unit;
+        } else if(direction == Directions.NORTH) {
             yAxis = yAxis + unit;
-        } else if(direction == Directions.EAST || direction == Directions.WEST) {
+        } else if(direction == Directions.SOUTH){
+            yAxis = yAxis - unit;
+        } else if(direction == Directions.EAST) {
             xAxis = xAxis + unit;
+        } else if(direction == Directions.WEST) {
+            xAxis = xAxis - unit;
         }
         ArrayList<String> temp = displayPosition();
 
@@ -54,12 +60,19 @@ public class MoonLunar extends Lunar{
         if(!checkLimitExceed(direction)){
             throw new IllegalStateException("Lunar Backward Exceeded reached at the boundaries! " + direction);
         }
-        if(direction == Directions.UP || direction == Directions.DOWN) {
+
+        if(direction == Directions.UP) {
             zAxis = zAxis - unit;
-        } else if(direction == Directions.NORTH || direction == Directions.SOUTH) {
+        } else if(direction == Directions.DOWN){
+            zAxis = zAxis + unit;
+        } else if(direction == Directions.NORTH) {
             yAxis = yAxis - unit;
-        } else if(direction == Directions.EAST || direction == Directions.WEST) {
+        } else if (direction == Directions.SOUTH) {
+            yAxis = yAxis + unit;
+        } else if(direction == Directions.EAST ) {
             xAxis = xAxis - unit;
+        } else if(direction == Directions.WEST){
+            xAxis = xAxis + unit;
         }
         ArrayList<String> temp = displayPosition();
         return null;
