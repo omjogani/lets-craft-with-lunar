@@ -1,4 +1,4 @@
-# Let's Craft With Lunar - Incubye Assignment
+# Let's Craft With Lunar - Incubyte Assignment
 CONTROL LUNAR AT MOON FROM THE EARTH!
 
 ![banner](https://github.com/omjogani/lets-craft-with-lunar/assets/72139914/650968cd-02a8-4d64-83a4-9b01e5fa1904)
